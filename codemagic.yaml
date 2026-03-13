@@ -8,11 +8,12 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          cd mobile_app
+          # 直接在根目录运行，不需要进入 mobile_app
           flutter pub get
       - name: Build iOS (no code sign)
         script: |
-          cd mobile_app
+          # 直接在根目录运行
           flutter build ios --release --no-codesign
     artifacts:
-      - mobile_app/build/ios/iphoneos/*.app
+      # 修正产物路径，指向真实位置
+      - build/ios/iphoneos/*.app
