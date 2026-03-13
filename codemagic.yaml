@@ -1,0 +1,18 @@
+workflows:
+  build-ios:
+    name: Build iOS App
+    max_build_duration: 60
+    environment:
+      flutter: stable
+      xcode: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          cd mobile_app
+          flutter pub get
+      - name: Build iOS (no code sign)
+        script: |
+          cd mobile_app
+          flutter build ios --release --no-codesign
+    artifacts:
+      - mobile_app/build/ios/iphoneos/*.app
