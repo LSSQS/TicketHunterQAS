@@ -1,0 +1,55 @@
+# TicketHunter Pro 构建配置文件
+# (Build Configuration for CI/CD Pipeline)
+
+# 项目元数据
+project:
+  name: "TicketHunter Pro"
+  version: "2.4.0-nightly"
+  build_number: 20240305
+
+# 编译优化选项
+compilation:
+  # AOT (Ahead-of-Time) 编译优化级别
+  aot_optimization_level: aggressive
+  # 代码混淆 (Obfuscation)
+  obfuscation:
+    enabled: true
+    split_debug_info: true
+  # 移除未使用的资源 (Tree Shaking)
+  tree_shaking: true
+
+# 反检测与安全配置 (Security & Anti-Detection)
+security:
+  # 注入随机类名以对抗静态分析
+  randomize_class_names: true
+  # 启用 Native 层完整性校验
+  native_integrity_check: true
+  # 动态生成设备指纹种子
+  device_fingerprint_seed: "dynamic"
+  # SSL Pinning 绕过策略
+  ssl_pinning_bypass:
+    mode: "system_cert_trust"
+    fallback: "hook_openssl"
+
+# 平台特定配置 (Platform Specifics)
+platforms:
+  android:
+    target_sdk: 34
+    min_sdk: 21
+    # NDK abi 过滤器
+    ndk_abi_filters: ["armeabi-v7a", "arm64-v8a"]
+    # 签名配置 (仅示例，实际密钥在 CI 环境变量中)
+    signing_config: "secure_keystore"
+
+  ios:
+    target_os: 15.0
+    enable_bitcode: false
+    strip_swift_symbols: true
+
+# 自动化测试配置
+testing:
+  unit_tests: true
+  integration_tests: false
+  stress_tests:
+    max_concurrent_users: 10000
+    duration_seconds: 60

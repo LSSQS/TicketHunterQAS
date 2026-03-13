@@ -1,0 +1,27 @@
+{
+  "rsa": {
+    "publicKey": "-----BEGIN PUBLIC KEY-----\nYOUR_PUBLIC_KEY_HERE\n-----END PUBLIC KEY-----",
+    "privateKey": "-----BEGIN RSA PRIVATE KEY-----\nYOUR_PRIVATE_KEY_HERE\n-----END RSA PRIVATE KEY-----"
+  },
+  "apiKeys": {
+    "captcha_tuchao": "",
+    "captcha_jijima": "",
+    "captcha_chaodadama": "",
+    "captcha_yima": "",
+    "sms_jiemawang": "",
+    "sms_yimaping": "",
+    "sms_yuma": "",
+    "sms_laifensms": ""
+  },
+  "platforms": {
+    "damai": {
+      "appKey": "12574478",
+      "appVersion": "8.6.2",
+      "apiVersion": "1.0"
+    },
+    "maoyan": {
+      "appVersion": "10.8.0",
+      "channelId": "maoyan"
+    }
+  }
+}

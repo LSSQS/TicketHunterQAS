@@ -1,0 +1,24 @@
+{
+  "rsa": {
+    "publicKey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...\n-----END PUBLIC KEY-----",
+    "privateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC...\n-----END PRIVATE KEY-----"
+  },
+  "captcha": {
+    "apiUrl": "https://api.your-captcha-service.com/recognize",
+    "apiKey": "your_api_key_here",
+    "timeout": 10000
+  },
+  "sms": {
+    "apiUrl": "https://api.your-sms-service.com/getPhone",
+    "apiKey": "your_api_key_here",
+    "timeout": 30000
+  },
+  "app": {
+    "maxRetries": 5,
+    "retryDelay": 1000,
+    "requestTimeout": 15000,
+    "enableAntiDetection": true,
+    "enableRootDetection": true,
+    "logLevel": "info"
+  }
+}
