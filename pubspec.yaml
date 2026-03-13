@@ -1,0 +1,80 @@
+name: ticket_hunter_pro
+description: 票务猎手 - 多平台票务助手
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # 状态管理
+  provider: ^6.1.2
+  
+  # 网络请求
+  dio: ^5.4.0
+  dio_cookie_manager: ^3.1.1
+  cookie_jar: ^4.0.8
+  
+  # 本地存储
+  shared_preferences: ^2.2.3
+  sqflite: ^2.3.2
+  path: ^1.8.3
+  
+  # 加密解密
+  crypto: ^3.0.3
+  encrypt: ^5.0.3
+  pointycastle: ^3.7.4
+  
+  # JSON处理
+  json_annotation: ^4.9.0
+  
+  # UI组件
+  cupertino_icons: ^1.0.8
+  flutter_staggered_animations: ^1.1.1
+  lottie: ^3.1.0
+  
+  # 设备信息
+  device_info_plus: ^9.1.2
+  package_info_plus: ^5.0.1
+  
+  # 权限管理
+  permission_handler: ^11.3.1
+  
+  # 时间处理
+  intl: ^0.19.0
+  
+  # 网络状态
+  connectivity_plus: ^5.0.2
+  
+  # 日志
+  logger: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^3.0.2
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/config/
+  #   - assets/images/
+  #   - assets/animations/
+  
+  # fonts:
+  #   - family: PingFang
+  #     fonts:
+  #       - asset: assets/fonts/PingFang-Regular.ttf
+  #       - asset: assets/fonts/PingFang-Medium.ttf
+  #         weight: 500
+  #       - asset: assets/fonts/PingFang-Bold.ttf
+  #         weight: 700
