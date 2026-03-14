@@ -3,8 +3,8 @@ workflows:
     name: Build Android APK
     max_build_duration: 60
     environment:
-      flutter: stable
-      java: 17 # 安卓编译必须用 JDK 17
+      flutter: 3.16.9  # 固定为你本地可用的稳定版，避免 API 变更报错
+      java: 17         # 安卓编译必须用 JDK 17
     scripts:
       - name: Install dependencies
         script: |
