@@ -1,19 +1,18 @@
 workflows:
-  build-ios:
-    name: Build iOS App
+  build-android:
+    name: Build Android APK
     max_build_duration: 60
     environment:
       flutter: stable
-      xcode: latest
+      java: 17  # 安卓编译必须用 JDK 17
     scripts:
       - name: Install dependencies
         script: |
-          # 直接在根目录运行，不需要进入 mobile_app
           flutter pub get
-      - name: Build iOS (no code sign)
+          flutter pub run build_runner build --delete-conflicting-outputs
+      - name: Build Release APK
         script: |
-          # 直接在根目录运行
-          flutter build ios --release --no-codesign
+          flutter build apk --release --split-per-abi
     artifacts:
-      # 修正产物路径，指向真实位置
-      - build/ios/iphoneos/*.app
+      # 产物路径（你的根目录下直接 build）
+      - build/app/outputs/flutter-apk/*.apk
