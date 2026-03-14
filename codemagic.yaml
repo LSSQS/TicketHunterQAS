@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       flutter: stable
-      java: 17  # 安卓编译必须用 JDK 17
+      java: 17 # 安卓编译必须用 JDK 17
     scripts:
       - name: Install dependencies
         script: |
@@ -14,5 +14,5 @@ workflows:
         script: |
           flutter build apk --release --split-per-abi
     artifacts:
-      # 产物路径（你的根目录下直接 build）
+      # 产物路径 (你的根目录下直接 build)
       - build/app/outputs/flutter-apk/*.apk
