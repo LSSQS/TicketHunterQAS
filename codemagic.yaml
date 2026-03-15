@@ -1,18 +1,22 @@
 workflows:
-  build-android:
-    name: Build Android APK
-    max_build_duration: 60
+  build-ios:
+    name: Build iOS App (Flutter 3.16.9)
+    max_build_duration: 120
     environment:
-      flutter: 3.16.9  # 固定为你本地可用的稳定版，避免 API 变更报错
-      java: 17         # 安卓编译必须用 JDK 17
+      flutter: 3.16.9
+      xcode: latest
+      cocoapods: default
     scripts:
-      - name: Install dependencies
+      - name: Install Flutter dependencies
         script: |
           flutter pub get
-          flutter pub run build_runner build --delete-conflicting-outputs
-      - name: Build Release APK
+      - name: Install iOS pods
         script: |
-          flutter build apk --release --split-per-abi
+          cd ios
+          pod install --repo-update
+          cd ..
+      - name: Build iOS Release (No Code Sign)
+        script: |
+          flutter build ios --release --no-codesign
     artifacts:
-      # 产物路径 (你的根目录下直接 build)
-      - build/app/outputs/flutter-apk/*.apk
+      - build/ios/iphoneos/*.app
